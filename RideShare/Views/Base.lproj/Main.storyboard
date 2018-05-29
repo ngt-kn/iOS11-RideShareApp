@@ -153,6 +153,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="callDriverButton" destination="6po-e0-0ig" id="9RN-be-dNb"/>
                         <outlet property="map" destination="ZVM-6U-JuV" id="7Gd-66-Whm"/>
                     </connections>
                 </viewController>
