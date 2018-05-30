@@ -15,6 +15,8 @@
 		A646940B20BD965F0044085B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A646940920BD965F0044085B /* LaunchScreen.storyboard */; };
 		A646941320BD97280044085B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A646941220BD97280044085B /* GoogleService-Info.plist */; };
 		A646941720BDA9100044085B /* RiderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646941620BDA9100044085B /* RiderViewController.swift */; };
+		A6E2807C20BF1EC200E5808F /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E2807B20BF1EC200E5808F /* DriverTableViewController.swift */; };
+		A6E2807E20BF258600E5808F /* AcceptRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E2807D20BF258600E5808F /* AcceptRequestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A646940C20BD965F0044085B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A646941220BD97280044085B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A646941620BDA9100044085B /* RiderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderViewController.swift; sourceTree = "<group>"; };
+		A6E2807B20BF1EC200E5808F /* DriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewController.swift; sourceTree = "<group>"; };
+		A6E2807D20BF258600E5808F /* AcceptRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptRequestViewController.swift; sourceTree = "<group>"; };
 		C71EBF3E7BCF2398A530CD01 /* Pods-RideShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideShare/Pods-RideShare.debug.xcconfig"; sourceTree = "<group>"; };
 		F604B210DF7C8F107EE6B036 /* Pods-RideShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideShare/Pods-RideShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +110,8 @@
 			children = (
 				A646940220BD965C0044085B /* ViewController.swift */,
 				A646941620BDA9100044085B /* RiderViewController.swift */,
+				A6E2807B20BF1EC200E5808F /* DriverTableViewController.swift */,
+				A6E2807D20BF258600E5808F /* AcceptRequestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,8 +236,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A646940320BD965C0044085B /* ViewController.swift in Sources */,
+				A6E2807C20BF1EC200E5808F /* DriverTableViewController.swift in Sources */,
 				A646941720BDA9100044085B /* RiderViewController.swift in Sources */,
 				A646940120BD965C0044085B /* AppDelegate.swift in Sources */,
+				A6E2807E20BF258600E5808F /* AcceptRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +386,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RideShare/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngtkn.RideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -393,7 +404,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RideShare/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngtkn.RideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

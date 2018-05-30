@@ -30,8 +30,14 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate{
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        
-        
+        if let email = Auth.auth().currentUser?.email {
+            Database.database().reference().child("RideRequests").queryOrdered(byChild: "email").queryEqual(toValue: email).observe(.childAdded) { (snapShot) in
+                self.driverHasBeenCalled = true
+                self.callDriverButton.setTitle("Cancel Request", for: .normal)
+                Database.database().reference().child("RideRequests").removeAllObservers()
+                
+            } 
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -58,22 +64,20 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate{
         if let email = Auth.auth().currentUser?.email {
             
             if driverHasBeenCalled{
-                let rideRequestDictionary : [String:Any] = ["email":email,"lat":userLocation.latitude,"lon":userLocation.longitude]
-                Database.database().reference().child("RideRequests").childByAutoId().setValue(rideRequestDictionary)
-                
-                driverHasBeenCalled = true
-                callDriverButton.setTitle("Cancel Ride", for: .normal)
-            } else {
-                
+                driverHasBeenCalled = false
+                callDriverButton.setTitle("Call Driver", for: .normal)
+
                 Database.database().reference().child("RideRequests").queryOrdered(byChild: "email").queryEqual(toValue: email).observe(.childAdded) { (snapShot) in
                     snapShot.ref.removeValue()
                     
                     Database.database().reference().child("RideRequests").removeAllObservers()
-                    
                 }
-                
-                driverHasBeenCalled = false
-                callDriverButton.setTitle("Call Driver", for: .normal)
+            } else {
+                driverHasBeenCalled = true
+                callDriverButton.setTitle("Cancel Ride", for: .normal)
+
+                let rideRequestDictionary : [String:Any] = ["email":email,"lat":userLocation.latitude,"lon":userLocation.longitude]
+                Database.database().reference().child("RideRequests").childByAutoId().setValue(rideRequestDictionary)
             }
         }
     }
