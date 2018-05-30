@@ -17,16 +17,13 @@ class AcceptRequestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(requestLocation)
         let region = MKCoordinateRegion(center: requestLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
         mapView.setRegion(region, animated: false)
+        
         let annotation = MKPointAnnotation()
         annotation.coordinate = requestLocation
         annotation.title = requestEmail
         mapView.addAnnotation(annotation)
- 
     }
 
     @IBAction func acceptPressed(_ sender: UIButton) {
