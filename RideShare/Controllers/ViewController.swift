@@ -48,8 +48,7 @@ class ViewController: UIViewController {
                                 req?.displayName = "Rider"
                                 req?.commitChanges(completion: nil)
                                 self.performSegue(withIdentifier: "riderSegue", sender: nil)
-                            }
-                        
+                            }                 
                         }
                     }
                 } else {
@@ -100,8 +99,6 @@ class ViewController: UIViewController {
             signUpMode = true
         }
     }
-    
-    
 
 }
 

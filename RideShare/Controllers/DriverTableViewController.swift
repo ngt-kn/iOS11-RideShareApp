@@ -26,10 +26,16 @@ class DriverTableViewController: UITableViewController, CLLocationManagerDelegat
         locationManager.startUpdatingLocation()
         
         Database.database().reference().child("RideRequests").observe(.childAdded) { (snapshot) in
-            self.rideRequests.append(snapshot)
-            self.tableView.reloadData()   
+            if let rideRequestDictionary = snapshot.value as? [String:AnyObject] {
+                if (rideRequestDictionary["driverLat"] as? Double) != nil {
+                    // If driverLat exists, don't load ride request
+                } else {
+                    self.rideRequests.append(snapshot)
+                    self.tableView.reloadData()
+                }
+            }
         }
-        
+        // Create timer to update tableview
         Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (timer) in
             self.tableView.reloadData()
         }
@@ -44,7 +50,6 @@ class DriverTableViewController: UITableViewController, CLLocationManagerDelegat
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return rideRequests.count
     }
 
